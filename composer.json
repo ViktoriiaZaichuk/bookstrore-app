@@ -1,0 +1,19 @@
+{
+    "name": "viktoriia/bookstrore-app",
+    "description": "Bookstrore App",
+    "autoload": {
+        "psr-4": {
+            "BookstroreApp\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vika Zaichuk",
+            "email": "viktoriia.zaichuk@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.10",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
