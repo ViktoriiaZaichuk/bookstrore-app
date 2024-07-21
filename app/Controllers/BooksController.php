@@ -20,7 +20,7 @@ class BooksController extends BaseController {
     public function show($id) {
         $book = $this->bookModel->getBookById($id);
         if ($book) {
-            echo $this->twig->render('books/show.html.twig', ['book' => $book]);
+            echo $this->twig->render('book/index.html.twig', ['book' => $book]);
         } else {
             http_response_code(404);
             echo 'Book not found';

@@ -1,0 +1,61 @@
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+            
+            if (name === "" || email === "" || message === "") {
+                alert("All fields must be filled out.");
+                return false;
+            }
+            // Simple email validation
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+
+    <form action="process_form.php" method="post" onsubmit="return validateForm();">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Retrieve and sanitize form inputs
+        $name = htmlspecialchars(trim($_POST['name']));
+        $email = htmlspecialchars(trim($_POST['email']));
+        $message = htmlspecialchars(trim($_POST['message']));
+
+        // Basic validation
+        if (empty($name) || empty($email) || empty($message)) {
+            echo "All fields are required.";
+        } else {
+            // Additional email validation
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                echo "Invalid email format.";
+            } else {
+                // Display the form data
+                echo "<h1>Form Submission Result</h1>";
+                echo "<p><strong>Name:</strong> " . $name . "</p>";
+                echo "<p><strong>Email:</strong> " . $email . "</p>";
+                echo "<p><strong>Message:</strong> " . nl2br($message) . "</p>";
+            }
+        }
+    } else {
+        // Redirect to the form page if accessed directly
+        header("Location: index.html");
+        exit();
+    }
