@@ -4,26 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Online Bookstore{% endblock %}</title>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <meta name="description" content="{% block metaDescription %}Online Bookstore{% endblock %}">
+    <meta name="keywords" content="{% block metaKeyWords %}Online, Bookstore{% endblock %}">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Viktoriia Zaichuk">
+    <link rel="canonical" href="http://example.com/page-url">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Title of the Content">
+    <meta property="og:description" content="Description of the content">
+    <meta property="og:image" content="URL to an image">
+    <meta property="og:url" content="URL of the page">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Title of the Content">
+    <meta name="twitter:description" content="Description of the content">
+    <meta name="twitter:image" content="URL to an image">
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-    <header>
-        <h1>Online Bookstore</h1>
-        <nav>
+    <!-- Header -->
+    <header class="header">
+        <h2><a href="/">Bookstore</a></h2>
+        
+        <nav class="nav">
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/books">Books</a></li>
                 <li><a href="/cart">Cart</a></li>
             </ul>
         </nav>
+        
+        <div class="overlay-menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/books">Books</a></li>
+                <li><a href="/cart">Cart</a></li>
+            </ul>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <span class="menu-icon"></span>
+            <span class="menu-icon"></span>
+            <span class="menu-icon"></span>
+        </button>
     </header>
-    <main>
+    <main class="main">
         {% block content %}{% endblock %}
     </main>
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 Online Bookstore. All rights reserved.</p>
-        <script src="/js/scripts.js"></script>
+        <script src="script/scripts.js"></script>
     </footer>
 </body>
 </html>
