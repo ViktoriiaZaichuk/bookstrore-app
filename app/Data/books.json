@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "1984",
+        "author": "George Orwell",
+        "description": "A dystopian social science fiction novel and cautionary tale.",
+        "price": 9.99
+    },
+    {
+        "id": 2,
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "description": "A novel about the serious issues of rape and racial inequality.",
+        "price": 7.99
+    }
+]

@@ -160,3 +160,15 @@ a {
 .footer {
     padding: 0 1rem;
 }
+
+/* Books page */
+.books {
+    display: flex;
+    justify-content: space-around;
+    .book-card {
+        max-width: 400px;
+        border: var(--black-color) 1px solid;
+        border-radius: 10px;
+        padding: 1rem;
+    }
+}
